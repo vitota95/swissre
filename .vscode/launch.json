@@ -2,14 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "C#: VulnerabilityCli Debug",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/VulnerabilityCli/src/VulnerabilityCli/VulnerabilityCli.csproj"
+    },
+    {
       "name": "Python: FastAPI",
       "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
-      "args": [
-        "VulnerabilityApi.main:app", // Path to your FastAPI app
-        "--reload"
-      ],
+      "args": ["VulnerabilityApi.main:app", "--reload"],
       "jinja": true
     }
   ]
