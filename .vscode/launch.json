@@ -12,8 +12,23 @@
       "type": "debugpy",
       "request": "launch",
       "module": "uvicorn",
-      "args": ["VulnerabilityApi.main:app", "--reload"],
-      "jinja": true
+      "args": ["VulnerabilityApi.app.main:app", "--reload"],
+      "jinja": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/VulnerabilityApi"
+      }
+    },
+    {
+      "name": "Python: Run Tests",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": [
+        "--maxfail=5", // Stop after 5 test failures
+        "--disable-warnings" // Disable warnings for cleaner output
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
     }
   ]
 }
