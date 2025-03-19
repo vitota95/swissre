@@ -58,6 +58,25 @@ services:
     volumes:
       - pgadmin-data:/var/lib/pgadmin
 
+  vulnerabilitycli:
+    build:
+      context: ./VulnerabilityCli/src
+      dockerfile: Dockerfile
+    container_name: vulnerability-cli
+    volumes:
+      - ./VulnerabilityCli/src/VulnerabilityCli/test-data:/app/data # Map the local `data` directory to `/app/data` in the container
+    entrypoint:
+      [
+        "dotnet",
+        "VulnerabilityCli.dll",
+        "--file",
+        "/app/data/ten_elements.json",
+        "--url",
+        "http://vulnerabilityapi:8000",
+      ]
+    depends_on:
+      - vulnerabilityapi
+
 volumes:
   redis-data:
   postgres-data:
