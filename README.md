@@ -22,8 +22,8 @@ This project is a **Vulnerability Management System** designed to manage and ana
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/vulnerability-management.git
-   cd vulnerability-management
+   git clone https://github.com/vitota95/swissre.git
+   cd swissre
    ```
 2. Start all services using Docker Compose:
 
