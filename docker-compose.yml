@@ -1,0 +1,36 @@
+services:
+  vulnerabilityapi:
+    build:
+      context: ./VulnerabilityApi
+      dockerfile: Dockerfile
+    container_name: vulnerability-api
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+    command:
+      [
+        "uvicorn",
+        "app.main:app",
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "8000",
+        "--reload",
+      ]
+
+  redis:
+    image: redislabs/redisearch:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    command:
+      ["redis-server", "--loadmodule", "/usr/lib/redis/modules/redisearch.so"]
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:

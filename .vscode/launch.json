@@ -16,7 +16,8 @@
       "jinja": true,
       "env": {
         "PYTHONPATH": "${workspaceFolder}/VulnerabilityApi"
-      }
+      },
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe"
     },
     {
       "name": "Python: Run Tests",
